@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <section class="sobre">
+        <div class="hero">
+            <div>
+                <p class="eyebrow">Quem sou eu</p>
+                <h1>FELIPE FARIAS</h1>
+                <p>
+                    Gosto de tecnologia, histórias envolventes e videogames que me fazem viver experiências inesquecíveis.
+                    Entre os meus jogos favoritos, sempre encontro um momento para explorar mundos incríveis, enfrentar desafios e mergulhar em narrativas emocionantes.
+                </p>
+            </div>
+            <img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?auto=format&fit=crop&w=900&q=80" alt="Console de videogame PS5">
+        </div>
+
+        <div class="favorites-category">
+            <div class="section-header">
+                <p class="eyebrow">Preferências</p>
+                <h2>Filmes e séries</h2>
+            </div>
+
+            <div class="media-tabs">
+                <div class="media-panel">
+                    <h3>Filmes</h3>
+                    <div class="games-grid media-grid">
+                        {% for filme in filmes %}
+                        <article class="game-card">
+                            <img src="{{ filme.imagem }}" alt="{{ filme.titulo }}">
+                            <div class="game-card-body">
+                                <h2>{{ filme.titulo }}</h2>
+                                <p>{{ filme.descricao }}</p>
+                            </div>
+                        </article>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="media-panel">
+                    <h3>Séries</h3>
+                    <div class="games-grid media-grid">
+                        {% for serie in series %}
+                        <article class="game-card">
+                            <img src="{{ serie.imagem }}" alt="{{ serie.titulo }}">
+                            <div class="game-card-body">
+                                <h2>{{ serie.titulo }}</h2>
+                                <p>{{ serie.descricao }}</p>
+                            </div>
+                        </article>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="games-grid">
+            {% for jogo in jogos %}
+            <article class="game-card">
+                <img src="{{ jogo.imagem }}" alt="{{ jogo.titulo }}">
+                <div class="game-card-body">
+                    <h2>{{ jogo.titulo }}</h2>
+                    <p>{{ jogo.descricao }}</p>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

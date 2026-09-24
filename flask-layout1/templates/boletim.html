@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<section class="boletim">
+    <h1>Boletim Escolar</h1>
+
+    <div class="boletim-box">
+        <table>
+            <thead>
+                <tr>
+                    <th>Disciplina</th>
+                    <th>Nota</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in notas %}
+                <tr>
+                    <td>{{ item["disciplina"] }}</td>
+                    <td>{{ "%.1f"|format(item["nota"]) }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <aside class="resumo">
+            <h2>Resumo</h2>
+            <p>Dados carregados diretamente do banco SQLite.</p>
+
+            <div class="card-box">
+                <label>Média geral</label>
+                <input type="text" value="{{ '%.1f'|format(media) }}" readonly>
+            </div>
+
+            <div class="card-box">
+                <label>Situação</label>
+                <input type="text" value="{{ situacao }}" readonly>
+            </div>
+        </aside>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<section class="validacao-box" style="max-width: 500px; margin: 40px auto;">
+    <div class="validacao-header">
+        <h2>Login</h2>
+        <p>Acesse as páginas restritas da atividade.</p>
+    </div>
+
+    {% if erro %}
+        <div class="resultado status-false">{{ erro }}</div>
+    {% endif %}
+
+    <form method="post">
+        <div class="campo">
+            <label for="usuario">Usuário</label>
+            <input id="usuario" name="usuario" type="text" required>
+        </div>
+
+        <br>
+
+        <div class="campo">
+            <label for="senha">Senha</label>
+            <input id="senha" name="senha" type="password" required>
+        </div>
+
+        <br>
+
+        <button type="submit">Entrar</button>
+    </form>
+
+    <p style="margin-top: 20px;">Usuário: <strong>felipe</strong> | Senha: <strong>1234</strong></p>
+</section>
+{% endblock %}

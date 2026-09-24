@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Pessoal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='menu.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('sobre') }}">Sobre mim</a></li>
+
+                {% if session.get('usuario_id') %}
+                    <li><a href="{{ url_for('boletim') }}">Boletim</a></li>
+                    <li><a href="{{ url_for('informacoes') }}">Informações</a></li>
+                    <li><a href="{{ url_for('logout') }}">Sair</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block main %}{% endblock %}
+    </main>
+</body>
+</html>

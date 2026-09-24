@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<section class="informacoes-page">
+    <div class="informacoes-layout">
+        <div class="info-card">
+            <h1>Informações pessoais</h1>
+            <p>Os dados abaixo foram obtidos da base de dados SQLite.</p>
+
+            <ul>
+                <li><strong>Nome:</strong> {{ aluno["nome"] }}</li>
+                <li><strong>Sobrenome:</strong> {{ aluno["sobrenome"] }}</li>
+                <li><strong>Idade:</strong> {{ aluno["idade"] }} anos</li>
+            </ul>
+        </div>
+
+        <div class="validation-card">
+            <h2>Permissões</h2>
+
+            <div class="resultado">
+                <div class="status-grid">
+                    <div class="status-box {% if pode_votar %}status-true{% else %}status-false{% endif %}">
+                        <label>Pode votar</label>
+                        <span>{{ "Sim" if pode_votar else "Não" }}</span>
+                    </div>
+
+                    <div class="status-box {% if pode_dirigir %}status-true{% else %}status-false{% endif %}">
+                        <label>Pode dirigir</label>
+                        <span>{{ "Sim" if pode_dirigir else "Não" }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
